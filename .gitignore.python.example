@@ -1,0 +1,22 @@
+# Перенеси нужные строки в уже существующий .gitignore репозитория.
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
+.coverage
+htmlcov/
+runtime/**
+!runtime/.gitkeep
+!runtime/incoming/.gitkeep
+!runtime/outgoing/.gitkeep
+!runtime/reports/.gitkeep
+tools/kosit/**
+!tools/kosit/README.md
+.env
+.env.*
+!*.env.example
+# uv.lock НАМЕРЕННО НЕ ИГНОРИРУЕМ: фиксирует зависимости приложения.
