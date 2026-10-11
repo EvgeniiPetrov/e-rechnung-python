@@ -8,8 +8,8 @@ def validate_invoice_number(value: str) -> str:
         raise TypeError
     value = value.strip()
     value_len = len(value)
+
+    # The "value is None" check is redundant because the type has already been checked
     if value is None or value_len == 0:
         raise ValueError
-    if not isinstance(value, str):
-        raise TypeError
     return value
