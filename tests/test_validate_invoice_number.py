@@ -22,7 +22,7 @@ def test_correct_validate_invoice_number(test_value, expected):
     assert result == expected
 
 
-def test_raises_ValueError_when_none():
+def test_raises_TypeError_when_none():
     with pytest.raises(TypeError):
         validate_invoice_number(None)  # type: ignore
 
