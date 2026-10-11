@@ -9,7 +9,7 @@ from e_rechnung import __version__
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="e-rechnung",
-        description="Учебный проект e-rechnung: генератор счёта будет добавлен позднее.",
+        description="Проект e-rechnung-python: генератор счёта будет добавлен позднее.",
     )
     parser.add_argument("--version", action="version", version=__version__)
     return parser
