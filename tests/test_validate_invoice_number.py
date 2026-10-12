@@ -23,20 +23,24 @@ def test_correct_validate_invoice_number(test_value, expected):
 
 
 def test_raises_TypeError_when_none():
-    with pytest.raises(TypeError):
+    with pytest.raises(TypeError) as exc_info:
         validate_invoice_number(None)  # type: ignore
+    assert str(exc_info.value) == "Invoice number must be of type str."
 
 
 def test_raises_ValueError_when_empty_string():
-    with pytest.raises(ValueError):
+    with pytest.raises(ValueError) as exc_info:
         validate_invoice_number("")
+    assert str(exc_info.value) == "Invoice number must not be empty or contain only whitespace."
 
 
 def test_raises_ValueError_when_doublespase():
-    with pytest.raises(ValueError):
+    with pytest.raises(ValueError) as exc_info:
         validate_invoice_number("  ")
+    assert str(exc_info.value) == "Invoice number must not be empty or contain only whitespace."
 
 
 def test_raises_TypeError_when_not_string():
-    with pytest.raises(TypeError):
+    with pytest.raises(TypeError) as exc_info:
         validate_invoice_number(4)  # type: ignore
+    assert str(exc_info.value) == "Invoice number must be of type str."
