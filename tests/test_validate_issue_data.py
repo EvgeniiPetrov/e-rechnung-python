@@ -2,20 +2,20 @@ import datetime
 
 import pytest
 
-from e_rechnung.domain.checks_validate_issue_data import validate_issue_data
+from e_rechnung.domain.checks_validate_issue_data import validate_issue_date
 
 
 @pytest.mark.parametrize("value", [("2026-2-8"), ("20261008"), (" 2026-10-08 "), "", "2026-W45-3"])
 def test_raices_ValueErorr_when_data_Incorrect(value: str) -> None:
     with pytest.raises(ValueError) as exc_info:
-        validate_issue_data(value)
+        validate_issue_date(value)
     assert str(exc_info.value) == f"Полученная дата: '{value}'. Требуемый формат даты: YYYY-MM-DD."
 
 
 def test_raices_ValueErorr_when_data_include_week_number() -> None:
     value: str = "2026-W45-3"
     with pytest.raises(ValueError) as exc_info:
-        validate_issue_data(value)
+        validate_issue_date(value)
     assert str(exc_info.value) == f"Полученная дата: '{value}'. Требуемый формат даты: YYYY-MM-DD."
 
 
@@ -28,7 +28,7 @@ def test_raices_ValueErorr_when_data_include_week_number() -> None:
 )
 def test_raices_ValueErorr_when_data_Out_Of_Range(value: str) -> None:
     with pytest.raises(ValueError) as exc_info_too:
-        validate_issue_data(value)
+        validate_issue_date(value)
     assert (
         str(exc_info_too.value)
         == f"Полученная дата: '{value}'. Ошибка: day is out of range for month"
@@ -37,7 +37,7 @@ def test_raices_ValueErorr_when_data_Out_Of_Range(value: str) -> None:
 
 def test_raices_TypeErorr_when_data_Not_String() -> None:
     with pytest.raises(TypeError) as exc_info:
-        validate_issue_data(123)  # type: ignore
+        validate_issue_date(123)  # type: ignore
     assert str(exc_info.value) == (
         "Дата должна иметь тип str. Требуемый формат даты: str(YYYY-MM-DD)."
     )
@@ -45,7 +45,7 @@ def test_raices_TypeErorr_when_data_Not_String() -> None:
 
 def test_raices_TypeErorr_when_data_is_None() -> None:
     with pytest.raises(TypeError) as exc_info:
-        validate_issue_data(None)  # type: ignore
+        validate_issue_date(None)  # type: ignore
     assert str(exc_info.value) == (
         "Дата должна иметь тип str. Требуемый формат даты: str(YYYY-MM-DD)."
     )
@@ -56,5 +56,5 @@ def test_raices_TypeErorr_when_data_is_None() -> None:
     [("2026-10-08", datetime.date(2026, 10, 8)), ("2024-02-29", datetime.date(2024, 2, 29))],
 )
 def test_corret_data(value, expected) -> None:
-    result = validate_issue_data(value)
+    result = validate_issue_date(value)
     assert result == expected

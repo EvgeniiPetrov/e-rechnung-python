@@ -1,7 +1,7 @@
 from datetime import date
 
 
-def validate_issue_data(value: str) -> date:
+def validate_issue_date(value: str) -> date:
     if not isinstance(value, str):
         raise TypeError("Дата должна иметь тип str. Требуемый формат даты: str(YYYY-MM-DD).")
     if len(value) != 10:
