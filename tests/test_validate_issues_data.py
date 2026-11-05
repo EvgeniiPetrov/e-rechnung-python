@@ -1,4 +1,5 @@
 import datetime
+
 import pytest
 
 from e_rechnung.domain.checks_validate_issues_data import validate_issues_data
