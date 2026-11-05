@@ -1,6 +1,6 @@
 import pytest
 
-from e_rechnung.domain.checks import validate_invoice_number
+from e_rechnung.domain.checks_validate_invoice_number import validate_invoice_number
 
 
 @pytest.mark.parametrize(
