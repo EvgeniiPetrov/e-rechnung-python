@@ -20,7 +20,6 @@ def test_raices_ValueErorr_when_data_Incorrect(value: str) -> None:
     ],
 )
 def test_raices_ValueErorr_when_data_Out_Of_Range(value: str) -> None:
-    # exc_info = None
     with pytest.raises(ValueError) as exc_info_too:
         validate_issue_data(value)
     assert (
