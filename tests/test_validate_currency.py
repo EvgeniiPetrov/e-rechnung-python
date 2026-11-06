@@ -42,6 +42,6 @@ def test_raises_value_error_when_only_whitespace(value="   "):
     with pytest.raises(ValueError) as exc_info:
         validate_currency(value)
     assert str(exc_info.value) == (
-        "Длинна передаваемого параметра равна 0. Требуется обозначение поддерживаемого"
+        "Длина передаваемого параметра равна 0. Требуется обозначение поддерживаемого "
         "типа валюты в str формате."
     )
