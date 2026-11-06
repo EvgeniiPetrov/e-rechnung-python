@@ -2,16 +2,10 @@ import pytest
 
 from e_rechnung.domain.checks_validate_currency import validate_currency
 
-# @pytest.mark.parametrize(
-#     "value, expected", [("eur", "EUR"), ("Eur", "EUR"), ["eur", "EUR"], ["EUR", "EUR"]]
-# )
-# def test_validate_currency_when_value_is_correct(value, expected):
-#     result = validate_currency(value)
-#     assert result == expected
-
 
 @pytest.mark.parametrize(
-    "value, expected", [("eur", "EUR"), ("Eur", "EUR"), ("eur", "EUR"), ("EUR", "EUR")]
+    "value, expected",
+    [("eur", "EUR"), ("Eur", "EUR"), (" eur ", "EUR"), ("EUR", "EUR"), ("  EUR  ", "EUR")],
 )
 def test_when_value_is_correct(value, expected):
     result = validate_currency(value)
