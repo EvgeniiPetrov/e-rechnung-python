@@ -1,4 +1,4 @@
-def validate_currency(value: str) -> str:  # noqa
+def validate_currency(value: str) -> str:
     currencies: set = {
         "EUR",
     }
