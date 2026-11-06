@@ -13,7 +13,7 @@ def validate_currency(value: str) -> str:  # noqa
     value = value.strip().upper()
     if len(value) == 0:
         raise ValueError(
-            "Длинна передаваемого параметра равна 0. Требуется обозначение поддерживаемого"
+            "Длина передаваемого параметра равна 0. Требуется обозначение поддерживаемого "
             "типа валюты в str формате."
         )
     if value in currencies:
