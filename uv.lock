@@ -12,7 +12,7 @@ wheels = [
 ]
 
 [[package]]
-name = "e-rechnung-learning"
+name = "e-rechnung-python"
 version = "0.1.0"
 source = { editable = "." }
 
