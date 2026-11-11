@@ -1,4 +1,4 @@
-from decimal import Decimal
+from decimal import Decimal, InvalidOperation
 
 
 def validate_quantity(value: str) -> Decimal:
@@ -17,7 +17,7 @@ def validate_quantity(value: str) -> Decimal:
             raise ValueError(f"Числовое значение '{value}' должно быть больше 0.")
         if decimal_value.is_infinite() or decimal_value.is_nan():
             raise ValueError(f"Числовое значение '{value}' должно быть конечным.")
-    except Exception as exc_info:
+    except InvalidOperation as exc_info:
         raise ValueError(
             f"Ошибка при преобразовании строки '{value}' в Decimal: {str(exc_info)}"
         ) from exc_info
