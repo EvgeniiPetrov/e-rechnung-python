@@ -17,8 +17,6 @@ def net_unit_price(value: str) -> Decimal:
             raise ValueError(f"Числовое значение '{value}' должно быть конечным и не NaN.")
         if decimal_value < 0:
             raise ValueError(f"Числовое значение '{value}' не должно быть отрицательным.")
-        if decimal_value.is_infinite() or decimal_value.is_nan():
-            raise ValueError(f"Числовое значение '{value}' должно быть конечным.")
     except InvalidOperation as exc_info:
         raise ValueError(
             f"Ошибка при преобразовании строки '{value}' в Decimal: {str(exc_info)}"
