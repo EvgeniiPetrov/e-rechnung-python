@@ -12,6 +12,7 @@ from e_rechnung.domain.checks_validate_net_unit_price import net_unit_price
         ("10.5", Decimal("10.5")),
         ("1000", Decimal("1000")),
         ("0.001", Decimal("0.001")),
+        ("0", Decimal("0")),
     ],
 )
 def test_validate_net_unit_price_with_valid_input(input_value, expected_output):
@@ -22,7 +23,7 @@ def test_validate_net_unit_price_with_valid_input(input_value, expected_output):
 
 @pytest.mark.parametrize(
     "input_value",
-    ["0", "-1", "abc", "", " ", "NaN", "Infinity"],
+    ["-1", "abc", "", " ", "NaN", "Infinity"],
 )
 def test_validate_net_unit_price_value_error_with_invalid_input(input_value):
     with pytest.raises(ValueError):
