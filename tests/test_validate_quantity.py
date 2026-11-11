@@ -2,7 +2,7 @@ from decimal import Decimal
 
 import pytest
 
-from e_rechnung.domain.checks_validate_quantity import validate_quantity
+from e_rechnung.domain.checks_validate_quantity import net_unit_price
 
 
 @pytest.mark.parametrize(
@@ -15,7 +15,7 @@ from e_rechnung.domain.checks_validate_quantity import validate_quantity
     ],
 )
 def test_validate_quantity_with_valid_input(input_value, expected_output):
-    result = validate_quantity(input_value)
+    result = net_unit_price(input_value)
     assert isinstance(result, Decimal)
     assert result == expected_output
 
@@ -26,7 +26,7 @@ def test_validate_quantity_with_valid_input(input_value, expected_output):
 )
 def test_validate_quantity_value_error_with_invalid_input(input_value):
     with pytest.raises(ValueError):
-        validate_quantity(input_value)
+        net_unit_price(input_value)
 
 
 @pytest.mark.parametrize(
@@ -40,4 +40,4 @@ def test_validate_quantity_value_error_with_invalid_input(input_value):
 )
 def test_validate_quantity_type_error_with_invalid_input(input_value):
     with pytest.raises(TypeError):
-        validate_quantity(input_value)
+        net_unit_price(input_value)
