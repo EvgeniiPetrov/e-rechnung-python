@@ -2,7 +2,7 @@ from decimal import Decimal
 
 import pytest
 
-from e_rechnung.domain.checks_validate_quantity import net_unit_price
+from e_rechnung.domain.checks_validate_net_unit_price import net_unit_price
 
 
 @pytest.mark.parametrize(
