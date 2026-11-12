@@ -5,7 +5,15 @@ import pytest
 from e_rechnung.domain.checks_validate_issue_data import validate_issue_date
 
 
-@pytest.mark.parametrize("value", [("2026-2-8"), ("20261008"), (" 2026-10-08 "), "", "2026-W45-3"])
+@pytest.mark.parametrize(
+    "value",
+    [
+        ("2026-2-8"),
+        ("20261008"),
+        (" 2026-10-08 "),
+        "",
+    ],
+)
 def test_raices_ValueErorr_when_data_Incorrect(value: str) -> None:
     with pytest.raises(ValueError) as exc_info:
         validate_issue_date(value)
@@ -16,7 +24,10 @@ def test_raices_ValueErorr_when_data_include_week_number() -> None:
     value: str = "2026-W45-3"
     with pytest.raises(ValueError) as exc_info:
         validate_issue_date(value)
-    assert str(exc_info.value) == f"Полученная дата: '{value}'. Требуемый формат даты: YYYY-MM-DD."
+    assert (
+        str(exc_info.value)
+        == f"Полученная дата: '{value}'. Ошибка: Требуемый формат даты: YYYY-MM-DD."
+    )
 
 
 @pytest.mark.parametrize(
