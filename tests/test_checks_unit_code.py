@@ -28,7 +28,7 @@ def test_type_error_when_integer_in_unit_code(value=123) -> None:
         "",
     ],
 )
-def test_type_error_when_whitespace_or_zero_length_in_unit_code(value) -> None:
+def test_value_error_when_whitespace_or_zero_length_in_unit_code(value) -> None:
     with pytest.raises(ValueError) as exec_info:
         validate_unit_code(value)  # type: ignore
     assert (
