@@ -46,6 +46,14 @@ def test_raices_ValueErorr_when_data_Out_Of_Range(value: str) -> None:
     )
 
 
+def test_raices_TypeErorr_when_data_is_date_object() -> None:
+    with pytest.raises(TypeError) as exc_info:
+        validate_issue_date(datetime.date(2026, 2, 8))  # type: ignore
+    assert str(exc_info.value) == (
+        "Дата должна иметь тип str. Требуемый формат даты: str(YYYY-MM-DD)."
+    )
+
+
 def test_raices_TypeErorr_when_data_Not_String() -> None:
     with pytest.raises(TypeError) as exc_info:
         validate_issue_date(123)  # type: ignore
