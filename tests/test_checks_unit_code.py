@@ -8,7 +8,7 @@ def test_type_error_when_None_in_unit_code(value=None) -> None:
         validate_unit_code(value)  # type: ignore
     assert (
         str(exec_info.value)
-        == "Получено значение None, требуется тип входных данных str и код единицы измерения товара."
+        == "Получено значение None, требуется тип входных данных str и код единицы измерения позиции счёта."
     )
 
 
@@ -17,7 +17,7 @@ def test_type_error_when_integer_in_unit_code(value=123) -> None:
         validate_unit_code(value)  # type: ignore
     assert (
         str(exec_info.value)
-        == f"В строке {value} требуется тип входных данных str и код единицы измерения товара."
+        == f"В строке {value} требуется тип входных данных str и код единицы измерения позиции счёта."
     )
 
 
@@ -34,7 +34,7 @@ def test_value_error_when_whitespace_or_zero_length_in_unit_code(value) -> None:
     assert (
         str(exec_info.value)
         == "Длина передаваемого параметра равна 0 или содержит только пробельные символы."
-        + " Требуется код единицы измерения товара в str формате."
+        + " Требуется код единицы измерения позиции счёта в str формате."
     )
 
 
