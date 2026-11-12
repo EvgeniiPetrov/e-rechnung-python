@@ -1,7 +1,7 @@
 from decimal import Decimal, InvalidOperation
 
 
-def net_unit_price(value: str) -> Decimal:
+def validate_net_unit_price(value: str) -> Decimal:
     if value is None:
         raise TypeError(f"В строке {value} требуется тип входных данных str и числовое значение.")
     if not isinstance(value, str):

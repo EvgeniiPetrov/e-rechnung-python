@@ -2,7 +2,7 @@ from decimal import Decimal
 
 import pytest
 
-from e_rechnung.domain.checks_validate_net_unit_price import net_unit_price
+from e_rechnung.domain.checks_validate_net_unit_price import validate_net_unit_price
 
 
 @pytest.mark.parametrize(
@@ -16,7 +16,7 @@ from e_rechnung.domain.checks_validate_net_unit_price import net_unit_price
     ],
 )
 def test_validate_net_unit_price_with_valid_input(input_value, expected_output):
-    result = net_unit_price(input_value)
+    result = validate_net_unit_price(input_value)
     assert isinstance(result, Decimal)
     assert result == expected_output
 
@@ -27,7 +27,7 @@ def test_validate_net_unit_price_with_valid_input(input_value, expected_output):
 )
 def test_validate_net_unit_price_value_error_with_invalid_input(input_value):
     with pytest.raises(ValueError):
-        net_unit_price(input_value)
+        validate_net_unit_price(input_value)
 
 
 @pytest.mark.parametrize(
@@ -41,4 +41,4 @@ def test_validate_net_unit_price_value_error_with_invalid_input(input_value):
 )
 def test_validate_net_unit_price_type_error_with_invalid_input(input_value):
     with pytest.raises(TypeError):
-        net_unit_price(input_value)
+        validate_net_unit_price(input_value)
