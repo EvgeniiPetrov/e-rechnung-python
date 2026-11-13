@@ -10,6 +10,7 @@ from e_rechnung.domain.calculation_position_sum import calculate_position_sum
     [
         (Decimal("2"), Decimal("50"), Decimal("100")),
         (Decimal("1"), Decimal("25"), Decimal("25")),
+        (Decimal("1.5"), Decimal("2"), Decimal("3.0")),
         (Decimal("1.5"), Decimal("0"), Decimal("0")),
     ],
 )
