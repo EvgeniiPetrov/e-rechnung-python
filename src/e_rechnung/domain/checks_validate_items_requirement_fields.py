@@ -25,7 +25,7 @@ def validate_items_requirement_fields(value: dict) -> bool:
     missing_fields = ", ".join(requirement_fields - value.keys())
     if missing_fields:
         raise ValueError(
-            f"В в переданном dict {value} отсутствуют обязательные поля: {missing_fields}"
+            f"В переданном dict {value} отсутствуют обязательные поля: {missing_fields}"
         )
 
     uncorrect_fields = requirement_fields.symmetric_difference(value.keys())
