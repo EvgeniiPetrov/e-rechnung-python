@@ -2,7 +2,7 @@ from decimal import Decimal
 
 import pytest
 
-from e_rechnung.domain.calculation_position_sum import calculate_position_sum
+from e_rechnung.domain.calculate_position_sum import calculate_position_sum
 
 
 @pytest.mark.parametrize(
